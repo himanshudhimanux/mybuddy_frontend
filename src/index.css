@@ -1,0 +1,33 @@
+:root{
+    --primaryColor: #757575;
+    --secondColor: rgb(39, 91, 247);
+}
+
+/* Login Register Form css  */
+
+.auth-section{
+    background-image: linear-gradient(45deg,
+    rgba(0, 0, 0, 0.50),
+    rgba(0, 0, 0, 0.50)), url('/images/auth-bg.jpg');
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+}
+
+.form-group{
+    margin-bottom: 20px;
+}
+
+.btn-block {
+    max-width: 100%;
+    width: 100%;
+}
+
+.authContainer{
+    background-color: #fff;
+    padding: 40px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border-radius: 8px;
+    border: 1px solid #efefef;
+    margin-top: 150px;
+}
