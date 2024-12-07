@@ -1,15 +1,18 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { logout } from '../features/auth/authSlice';
-import {Link}  from 'react-router-dom'
+import {Link, useNavigate}  from 'react-router-dom'
 
 const Header = () => {
   const { isAuthenticated, role } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleLogout = () => {
     dispatch(logout());
     localStorage.removeItem('token');
     alert('Logged out successfully!');
+    navigate('/login')
+
   };
 
   return (

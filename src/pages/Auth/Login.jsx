@@ -16,7 +16,7 @@ const Login = () => {
     try {
       const response = await api.post('/auth/login', { email, password });
       const { user, token, role } = response.data;
-      localStorage.setItem('token', token); // Save token locally
+      localStorage.setItem('token', token); 
       dispatch(loginSuccess({ user, token, role }));
       alert('Login Successful!');
       navigate('/')
