@@ -26,7 +26,11 @@ const Regsiter = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      const response = await api.post('/auth/register', userData);
+      const response = await api.post('/auth/register', userData, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
       alert(response.data.message || 'User registered successfully!');
       setUserData({
         name: '',
