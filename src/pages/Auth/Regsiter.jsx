@@ -9,13 +9,10 @@ const Regsiter = () => {
     name: '',
     email: '',
     password: '',
-    role: 'teacher', // Default role is teacher
+    role: 'admin', // Default role is teacher
 
   });
-
-  console.log(userData);
   
-
   const handleChange = (e) => {
     setUserData({ 
       ...userData, 

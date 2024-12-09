@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import api from '../../utils/api';
 import { loginSuccess } from '../../features/auth/authSlice';
+import toast from 'react-hot-toast';
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -16,15 +17,18 @@ const Login = () => {
     try {
       const response = await api.post('/auth/login', { email, password });
       const { user, token, role } = response.data;
-      localStorage.setItem('token', token); 
+  
+      localStorage.setItem('token', token);
       dispatch(loginSuccess({ user, token, role }));
-      alert('Login Successful!');
-      navigate('/')
+  
+      toast.success('Login Successful');
+      navigate(role === 'admin' ? '/' : '/login');
     } catch (error) {
       console.error(error);
-      alert('Login Failed');
+      toast.error('Login failed');
     }
   };
+  
 
   return (
     <div className="auth-section">
